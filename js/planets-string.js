@@ -26,8 +26,8 @@
      */
     console.log(planetsArray.join("<br>"));
     var planetList = planetsArray.join("</li><li>")
+    console.log(planetList)
     var planetListArray=planetList.split("");
-    planetListArray.splice(planetListArray.length-4,4);
     planetListArray.push("</li></ul>");
     planetListArray.unshift("<ul><li>");
     console.log(planetListArray.join(""));
