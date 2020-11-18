@@ -73,7 +73,44 @@ var person = {
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-//var books = [{title: "In a Sunburned Country", author: {firstName:"Bill", lastName: "Bryson"}}, {title: "The Physics of Everyday Things", author: {firstName:"James", lastName: "Kakalios"}}, {title: "The Fellowship of the Ring", author: {firstName: "J.R.R.", lastName: "Tolkien"}}, {title: "The Physics of Superheroes", author: {firstName:"James", lastName: "Kakalios"}}, {title: "Hidden Figures", author: {firstName:"Margot Lee", lastName: "Shetterly"}}]
+// var books = [
+//     {
+//         title: "In a Sunburned Country",
+//         author: {
+//             firstName:"Bill",
+//             lastName: "Bryson"
+//         }
+//         },
+//         {
+//             title: "The Physics of Everyday Things",
+//             author: {
+//                 firstName:"James",
+//                 lastName: "Kakalios"
+//             }
+//             },
+//         {
+//             title: "The Fellowship of the Ring",
+//             author: {
+//                 firstName: "J.R.R.",
+//                 lastName: "Tolkien"
+//             }
+//             },
+//         {
+//             title: "The Physics of Superheroes",
+//             author: {
+//                 firstName:"James",
+//                 lastName: "Kakalios"
+//             }
+//             },
+//         {
+//             title: "Hidden Figures",
+//             author:
+//                 {
+//                     firstName:"Margot Lee",
+//                     lastName: "Shetterly"
+//                 }
+//         }
+//         ]
   var books=[];
   books.push(createBook("In a Sunburned Country", "Bill Bryson"));
   books.push(createBook("The Physics of Everyday Things", "James Kakalios"));
