@@ -1,4 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&display=swap');
 .fancy-header{
-    color:purple;
     text-decoration: underline;
+}
+#top{
+    text-align: center;
+}
+h1, h2{
+    text-decoration: underline;
+    color: tomato;
+}
+.heading{
+    background-color: gainsboro;
+    background-image: url("../img/create.jpeg");
+    background-repeat: no-repeat;
+    background-position: bottom 0px right 0px;
+
+    background-size: 800px;
+    border: 1px solid black;
+}
+body{
+    background-color: gray;
+
+
+    font-family: 'Bungee Shade', cursive;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+}
+ul {
+    list-style: url("../img/patrick.png");
+}
+ol{
+    list-style: url("../img/spongebob.png")
+}
+table{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+tr{
+    font-size: 50px;
+    color: darkblue;
+}
+td, li, p {
+    font-size: 25px;
+    color: yellowgreen;
+
+}
+td{
+    border: 1px solid black;
+}
+a:link {
+    color:red;
+}
+
+a:visited {
+    color:black;
+}
+
+a:hover {
+    color:blue;
+}
+
+a:active {
+    color:green;
+}
+.bottomContent{
+    text-align: center;
+}
+img{
+    height: 300px;
+    width: 500px;
+    padding: 2px;
 }
