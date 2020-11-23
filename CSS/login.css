@@ -16,6 +16,7 @@ form {
     /* There must be 1em between the content and the border of this element */
     margin: 1em;
     padding: 1em;
+
 }
 
 fieldset {
@@ -36,6 +37,7 @@ fieldset {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    max-width: 400px;
 }
 
 .form-group {
