@@ -41,19 +41,19 @@
         </div>
     </div>
     <h2>Build your own pizza!</h2>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" href="sizeAndCrust" data-toggle="tab">&#9312; Size and Crust</a>
+            <a class="nav-link active" id="crust-tab" href="#sizeAndCrust" data-toggle="tab" role="tab" aria-controls="sizeAndCrust" aria-selected="true">&#9312; Size and Crust</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="CheeseAndSauce" data-toggle="tab">&#9313; Cheese and Sauce</a>
+            <a class="nav-link" id="cheese-tab" href="#cheeseAndSauce" data-toggle="tab" role="tab" aria-controls="cheeseAndSauce" aria-selected="false">&#9313; Cheese and Sauce</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="Toppings" data-toggle="tab">&#9314; Toppings</a>
+            <a class="nav-link" id="toppings-tab" href="#toppings" data-toggle="tab" role="tab" aria-controls="toppings" aria-selected="false">&#9314; Toppings</a>
         </li>
     </ul>
     <div class="tab-content">
-        <div class="card text-left tab-pane active" id="sizeAndCrust" role="tabpanel" aria-labelledby="home-tab" >
+        <div class="card text-left tab-pane active" id="sizeAndCrust" role="tabpanel" aria-labelledby="crust-tab" >
             <div class="card-header bg-primary text-white">
                 Choose size and crust
             </div>
@@ -65,7 +65,7 @@
                     <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste</li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2"
                                    value="option2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Small (10")
@@ -74,7 +74,7 @@
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1"
                                    value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 Medium (12")
@@ -91,7 +91,7 @@
                     <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                            <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3"
                                    value="option2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Medium (12")
@@ -100,7 +100,7 @@
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                            <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios4"
                                    value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 Large (14")
@@ -110,10 +110,10 @@
                 </ul>
             </div>
             <div class="card-footer text-muted text-right">
-                <a href="#" class="btn btn-primary">Next Step></a>
+                <a href="#" class="btn btn-primary" onclick="javascript: $('#cheese-tab').tab('show');">Next Step></a>
             </div>
         </div>
-        <div class="card text-left ">
+        <div class="card text-left tab-pane" id="cheeseAndSauce" role="tabpanel" aria-labelledby="cheese-tab">
             <div class="card-header bg-primary text-white">
                 Choose cheese and sauce
             </div>
@@ -124,8 +124,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">How much?</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="amountOfCheese">How much?</label>
+                            <select class="form-control" id="amountOfCheese">
                                 <option>Light</option>
                                 <option>Normal</option>
                                 <option>Extra</option>
@@ -142,8 +142,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">What type?</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="typeOfSauce">What type?</label>
+                            <select class="form-control" id="typeOfSauce">
                                 <option>Tomato Sauce</option>
                                 <option>Marinara Sauce</option>
                                 <option>BBQ Sauce</option>
@@ -153,8 +153,8 @@
                     </li>
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">How much?</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="amountOfSauce">How much?</label>
+                            <select class="form-control" id="amountOfSauce">
                                 <option>Light</option>
                                 <option>Normal</option>
                                 <option>Extra</option>
@@ -164,11 +164,11 @@
                 </ul>
             </div>
             <div class="card-footer text-muted text-right">
-                <a href="#" class="btn btn-primary">Previous Step</a>
-                <a href="#" class="btn btn-primary">Next Step></a>
+                <a href="#" class="btn btn-primary" onclick="javascript: $('#crust-tab').tab('show');">Previous Step</a>
+                <a href="#" class="btn btn-primary" onclick="javascript: $('#toppings-tab').tab('show');">Next Step></a>
             </div>
         </div>
-        <div class="card text-left ">
+        <div class="card text-left tab-pane" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
             <div class="card-header bg-primary text-white">
                 Choose Toppings
             </div>
