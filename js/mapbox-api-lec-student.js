@@ -36,12 +36,12 @@
 
 // TODO TOGETHER: Add a marker to the map using the following coordinates [-98.4916, 29.4260]. This marker will mark the Alamo on our map.
 // TODO TOGETHER: Change the color of the marker
-var marker = new mapboxgl.Marker({
-    color:"purple",
-    draggable: true
-})
-    .setLngLat([-98.4916, 29.4260])
-    .addTo(map);
+// var marker = new mapboxgl.Marker({
+//     color:"purple",
+//     draggable: true
+// })
+//     .setLngLat([-98.4916, 29.4260])
+//     .addTo(map);
 // TODO: Experiment with the color, and setting the LngLat
 // TODO: Update the marker object to make the marker draggable. *Hint: reference the docs!
 
@@ -81,25 +81,25 @@ var marker = new mapboxgl.Marker({
 
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
-geocode("600 Navarro St #350 San Antonio TX 78205",mapBoxToken).then(function(result){
-    console.log(result);
-    //map.setCenter(result); //
-    map.setZoom(18);
-    marker.setLngLat(result)
-    var alamoPopup = new mapboxgl.Popup()
-    .setLngLat(result)
-    .setHTML("<p>Codeup rules</p>")
-    //.setMaxWidth("300px")
-    .addTo(map);
-    map.flyTo({
-        center: result,
-        zoom: 18,
-        speed: 0.1,
-        curve: 5,
-        essential: true
-
-    })
-})
+// geocode("600 Navarro St #350 San Antonio TX 78205",mapBoxToken).then(function(result){
+//     console.log(result);
+//     //map.setCenter(result); //
+//     map.setZoom(18);
+//     marker.setLngLat(result)
+//     var alamoPopup = new mapboxgl.Popup()
+//     .setLngLat(result)
+//     .setHTML("<p>Codeup rules</p>")
+//     //.setMaxWidth("300px")
+//     .addTo(map);
+//     map.flyTo({
+//         center: result,
+//         zoom: 18,
+//         speed: 0.1,
+//         curve: 5,
+//         essential: true
+//
+//     })
+// })
 
 // var newLocation = prompt();
 //
