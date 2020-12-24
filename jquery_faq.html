@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .invisible{
-            visibility: hidden;
-        }
-    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-resume.css">
+    <link rel="stylesheet" href="css/jquery_faq.css">
 </head>
 <body>
 <dl>
@@ -115,9 +114,32 @@
             Grand Canyon National Park is the top tourist destination in the state of Arizona, and the state proclaims itself “The Grand Canyon State”, even on its license plates.        </li>
     </ul>
 
+<div class="row">
+    <div class="col-4">
+        <div class="frame frame1">
+
+        </div>
+        <button id="left">Swap</button>
+    </div>
+    <div class="col-4">
+        <div class="frame frame2">
+
+        </div>
+        <button id="center">Swap</button>
+    </div>
+    <div class="col-4">
+        <div class="frame frame3">
+        </div>
+        <button id="right">Swap</button>
+    </div>
+
+</div>
+
 
 
 <script src="js/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
         // $(".invisible").css("visibility", "hidden")
@@ -138,6 +160,43 @@
             $(this).parent().children().first().css("color", "blue")
         })
         // $("ul").children().last().css("background-color", "yellow")
+
+    })
+    $(document).ready(function(){
+
+
+        $("#left").click(function(event){
+            var frame1IMG=$(".frame1").css("background-image");
+            var frame2IMG=$(".frame2").css("background-image");
+            var frame3IMG=$(".frame3").css("background-image");
+            event.preventDefault();
+            $(".frame2").css("background-image", frame1IMG)
+            $(".frame1").css("background-image", frame2IMG)
+        })
+        $("#right").click(function(event){
+            var frame1IMG=$(".frame1").css("background-image");
+            var frame2IMG=$(".frame2").css("background-image");
+            var frame3IMG=$(".frame3").css("background-image");
+            event.preventDefault();
+            $(".frame2").css("background-image", frame3IMG)
+            $(".frame3").css("background-image", frame2IMG)
+        })
+        $("#center").click(function(event){
+            var frame1IMG=$(".frame1").css("background-image");
+            var frame2IMG=$(".frame2").css("background-image");
+            var frame3IMG=$(".frame3").css("background-image");
+            var randomNumber=Math.round(Math.random())
+            console.log(randomNumber)
+            if (randomNumber===0) {
+                $(".frame2").css("background-image", frame3IMG)
+                $(".frame3").css("background-image", frame2IMG)
+            } else{
+                $(".frame2").css("background-image", frame1IMG)
+                $(".frame1").css("background-image", frame2IMG)
+            }
+        })
+
+
     })
 
 
