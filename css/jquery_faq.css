@@ -26,3 +26,10 @@
     height: 90%;
     background-image: url("../img/christmas_village.jpeg");
 }
+
+ul{
+    display: none;
+}
+/*.fade{*/
+/*    display: none;*/
+/*}*/

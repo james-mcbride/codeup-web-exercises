@@ -9,6 +9,29 @@
     <link rel="stylesheet" href="css/jquery_faq.css">
 </head>
 <body>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+Would you like to sign up for this newsletter?
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Would you like to sign up for our newsletter?</h4>
+            </div>
+            <div class="modal-body">
+                Please select an option below.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No thanks.</button>
+                <button type="button" class="btn btn-primary">Sign me up!</button>
+            </div>
+        </div>
+    </div>
+</div>
 <dl>
     <dt>Big Bend</dt>
     <dd class="invisible">Located along the Rio Grande river in southwest Texas</dd>
@@ -159,7 +182,12 @@
         $("li").click(function(event){
             $(this).parent().children().first().css("color", "blue")
         })
-        // $("ul").children().last().css("background-color", "yellow")
+        $("span").click(function(event){
+            $("#newsletter").hide();
+        })
+        $("h3").click(function(event){
+            $(this).next().slideToggle(750)
+        })
 
     })
     $(document).ready(function(){
@@ -195,6 +223,9 @@
                 $(".frame1").css("background-image", frame2IMG)
             }
         })
+        var signUp=setTimeout(function(){
+            $('#myModal').modal('toggle')
+        },8000)
 
 
     })
