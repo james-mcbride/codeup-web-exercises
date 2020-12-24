@@ -1,0 +1,82 @@
+/* The animation code */
+
+*, html {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2em;
+}
+
+#tree {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+    z-index: -1;
+    visibility: hidden;
+}
+@keyframes example {
+    0% {opacity: 1}
+    50% {opacity: .5}
+    100% {opacity: 1}
+}
+
+/* The element to apply the animation to */
+.red {
+    fill: red;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 1000;
+}
+.blue-lt {
+    fill: lightgreen;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 1000;}
+.blue-dk {
+    animation-delay: .75s;
+    fill: blue;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 1000;}
+.gold-lt {
+    animation-delay: 0.5s;
+    fill: yellow;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 1000;}
+
+.gold-dk {
+    animation-delay: .25s;
+    fill: gold;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 1000;}
+
+path {
+    fill: transparent;
+}
+
+text {
+    fill: #FF9800;
+}
+#curvedText{
+    position: absolute;
+    text-align: center;
+    display: none;
+}
+
+
+
+#merryChristmas{
+    text-align: center;
+    font-size: 42px;
+}
+textPath{
+    text-align: center;
+}
+/*#Layer_1{*/
+/*    display: none;*/
+/*}*/
