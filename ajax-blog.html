@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-resume.css">
+<!--    <link rel="stylesheet" href="css/jquery_faq.css">-->
+</head>
+<body>
+<div id="posts">
+
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $.ajax("data/blog.json").done(function(data){
+            var postsContents="";
+            for (var obj in data){
+                var innerObj=data[obj];
+                var innerObjContents="";
+                   innerObjContents+="<div class=\"card text-center\"><div class=\"card-header\">"+ "Blog Post Categories: " + innerObj.categories + "</div>" +
+                       "  <div class=\"card-body\">" +
+                       "    <h5 class=\"card-title\">"+ innerObj.title + "</h5>" +
+                       "    <p class=\"card-text\">"+ innerObj.content +"</p>\n" +
+                       "  </div>" +
+                       "  <div class=\"card-footer text-muted\">" + innerObj.date +
+                       "  </div>" +
+                       "</div>"
+                    postsContents+=innerObjContents
+            }
+            console.log(postsContents)
+            $("#posts").html(postsContents)
+        })
+    })
+</script>
+</body>
+</html>
