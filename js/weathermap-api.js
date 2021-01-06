@@ -40,9 +40,9 @@ geocode("San Antonio, TX", mapBoxToken).then(function(result){
             console.log(weatherObj[i].icon)
             card.innerHTML='<div class="card-header">'+weatherObj[i].date.split(" ")[0]+'</div>' +
                 "<ul class=\"list-group list-group-flush\">\n" +
-                "            <li class=\"list-group-item\">"+weatherObj[i].tempMin+"°F/"+weatherObj[i].tempMax+"°F<br>"+
-                "</li>\n" + "<img src='http://openweathermap.org/img/wn/"+ weatherObj[i].icon+"@2x.png' width='50px' height='50px'>"+
-                "            <li class=\"list-group-item\">"+weatherObj[i].wind+"<br>Humidity"+"</li>\n" +
+                "            <li class=\"list-group-item\">"+weatherObj[i].tempMin+"°F / "+weatherObj[i].tempMax+"°F"+
+                "</li>" + "<img src='http://openweathermap.org/img/wn/"+ weatherObj[i].icon+"@2x.png' width='50px' height='50px'>"+
+                "            <li class=\"list-group-item\">"+weatherObj[i].description+"<br>Humidity"+"</li>\n" +
                 "            <li class=\"list-group-item\">"+weatherObj[i].wind+"</li>\n" +
                 "            <li class=\"list-group-item\">"+weatherObj[i].pressure+"</li>\n" +
                 "        </ul>"
