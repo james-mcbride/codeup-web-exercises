@@ -52,5 +52,12 @@
         "tool"
     ],
     "price": 8
+},{
+    "title": "Needle Nosed Pliers",
+    "quantity": 100,
+    "categories": [
+        "tool"
+    ],
+    "price": 2
 }
 ]

@@ -5,8 +5,12 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap-resume.css">
     <link rel="stylesheet" href="css/jquery_faq.css">
+    <style>
+        .invisible{
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
 <div class="alert alert-warning alert-dismissible" role="alert">
@@ -136,6 +140,7 @@ Would you like to sign up for this newsletter?
         <li>
             Grand Canyon National Park is the top tourist destination in the state of Arizona, and the state proclaims itself “The Grand Canyon State”, even on its license plates.        </li>
     </ul>
+    <button id="highlight">Click to highlight last list items.</button>
 
 <div class="row">
     <div class="col-4">
@@ -173,9 +178,11 @@ Would you like to sign up for this newsletter?
         $("dt").click(function(event){
             $(this).css("background-color", "yellow")
         })
-        $("ul").click(function(event){
-            $(this).children().last().css("background-color", "yellow")
-        })
+        $("#highlight").click(function(event){
+            $("ul").each(function(){
+                $(this).children().last().css("background-color", "yellow")
+            })
+            })
         $("h3").click(function(event){
             $(this).next().css("font-weight", "bold")
         })

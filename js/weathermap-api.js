@@ -23,15 +23,16 @@ geocode("San Antonio, TX", mapBoxToken).then(function(result){
     }).done(function(data) {
         console.log(data)
         var weatherObj={}
-        for (var i =0; i<5; i++) {
-            weatherObj[i] = {}
-            weatherObj[i].tempMin=data.list[i].main.temp_min
-            weatherObj[i].tempMax=data.list[i].main.temp_max
-            weatherObj[i].description=data.list[i].weather[0].description
-            weatherObj[i].wind=data.list[i].wind.speed
-            weatherObj[i].pressure=data.list[i].main.pressure
-            weatherObj[i].date=data.list[i].dt_txt
-            weatherObj[i].icon=data.list[i].weather[0].icon
+        for (var i =0, j=0; i<40; i=i+8, j++) {
+            weatherObj[j] = {}
+            weatherObj[j].tempMin=data.list[i].main.temp_min
+            weatherObj[j].tempMax=data.list[i].main.temp_max
+            weatherObj[j].description=data.list[i].weather[0].description
+            weatherObj[j].wind=data.list[i].wind.speed
+            weatherObj[j].pressure=data.list[i].main.pressure
+            weatherObj[j].humidity=data.list[i].main.humidity
+            weatherObj[j].date=data.list[i].dt_txt
+            weatherObj[j].icon=data.list[i].weather[0].icon
         }
         console.log(weatherObj)
         var cards=$(".card-deck").children()
@@ -40,11 +41,11 @@ geocode("San Antonio, TX", mapBoxToken).then(function(result){
             console.log(weatherObj[i].icon)
             card.innerHTML='<div class="card-header">'+weatherObj[i].date.split(" ")[0]+'</div>' +
                 "<ul class=\"list-group list-group-flush\">\n" +
-                "            <li class=\"list-group-item\">"+weatherObj[i].tempMin+"°F / "+weatherObj[i].tempMax+"°F"+
-                "</li>" + "<img src='http://openweathermap.org/img/wn/"+ weatherObj[i].icon+"@2x.png' width='50px' height='50px'>"+
-                "            <li class=\"list-group-item\">"+weatherObj[i].description+"<br>Humidity"+"</li>\n" +
-                "            <li class=\"list-group-item\">"+weatherObj[i].wind+"</li>\n" +
-                "            <li class=\"list-group-item\">"+weatherObj[i].pressure+"</li>\n" +
+                "            <li class=\"list-group-item\">"+weatherObj[i].tempMin+"°F / "+weatherObj[i].tempMax+"°F"+"<br>"+
+                 "<img src='http://openweathermap.org/img/wn/"+ weatherObj[i].icon+"@2x.png' width='50px' height='50px'>"+"</li>"+
+                "            <li class=\"list-group-item\"> Description: "+weatherObj[i].description+"<br><br>Humdity: "+weatherObj[i].humidity+"</li>\n" +
+                "            <li class=\"list-group-item\">Wind: "+weatherObj[i].wind+"</li>\n" +
+                "            <li class=\"list-group-item\">Pressure: "+weatherObj[i].pressure+"</li>\n" +
                 "        </ul>"
         }
     });

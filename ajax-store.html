@@ -12,8 +12,8 @@
         <tr>
             <th>Title</th>
             <th>Quantity</th>
-            <th>Price</th>
             <th>Categories</th>
+            <th>Price</th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
@@ -32,13 +32,13 @@
         console.log("Data returned from server:");
         console.log(data);
         var tBodyContents=""
-        for (var obj in data) {
-            var innerObj = data[obj]
-            tBodyContents+="<tr>"
-            for (var obj in innerObj) {
-                tBodyContents += "<td>" + innerObj[obj]+"</td>"
-            }
-            tBodyContents+="</tr>"
+        for (var i=0; i<data.length; i++){
+            var innerObj = data[i]
+                tBodyContents+="<tr>"
+                for (var obj in innerObj) {
+                    tBodyContents += "<td>" + innerObj[obj]+"</td>"
+                }
+                tBodyContents+="</tr>"
         }
         $("#insertProducts").html(tBodyContents)
         console.log(tBodyContents)
@@ -54,13 +54,13 @@ $(document).ready(function(event){
         event.preventDefault()
         $.ajax("data/inventory.json").done(function (data, status, jqXhr) {
             var tBodyContents = ""
-            for (var obj in data) {
-                var innerObj = data[obj]
-                tBodyContents += "<tr>"
+            for (var i=0; i<data.length; i++){
+                var innerObj = data[i]
+                tBodyContents+="<tr>"
                 for (var obj in innerObj) {
-                    tBodyContents += "<td>" + innerObj[obj] + "</td>"
+                    tBodyContents += "<td>" + innerObj[obj]+"</td>"
                 }
-                tBodyContents += "</tr>"
+                tBodyContents+="</tr>"
             }
             $("#insertProducts").html(tBodyContents)
             console.log(tBodyContents)
