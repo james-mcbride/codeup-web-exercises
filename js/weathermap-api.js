@@ -21,6 +21,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     lon: latitude,
     units: "imperial"
 }).done(function (data) {
+    console.log(data)
     var weatherObj = {}
     for (var i = 0, j = 0; i < 40; i = i + 8, j++) {
         weatherObj[j] = {}
@@ -33,6 +34,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
         weatherObj[j].date = data.list[i].dt_txt
         weatherObj[j].icon = data.list[i].weather[0].icon
     }
+    console.log(weatherObj)
     var cards = $(".card-deck").children()
     for (var i = 0; i < cards.length; i++) {
         let card = cards[i];
