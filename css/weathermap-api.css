@@ -1,3 +1,33 @@
-li{
-    border: 1mm solid gray;
+#map{
+    width: 80%;
+    height: 500px;
+    margin: 10px 10%;
 }
+
+h3{
+    text-align: center;
+}
+#city{
+    text-align: center;
+    margin-top: 5px;
+}
+#header{
+    height: 40px;
+    margin: 5px;
+    background-color: royalblue;
+    color: whitesmoke;
+}
+.form-inline{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-group {
+        width: 400px;
+    }
+
+    #inputAddress {
+        width: 100%
+    }
