@@ -1,5 +1,5 @@
 mapboxgl.accessToken = mapBoxToken;
-
+$(".hiddenForm").hide()
 function geocode(search, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
@@ -27,7 +27,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
         weatherObj[j] = {}
         weatherObj[j].tempMin = data.list[i].main.temp_min
         weatherObj[j].tempMax = data.list[i].main.temp_max
-        weatherObj[j].description = data.list[i].weather[0].description
+         weatherObj[j].description = data.list[i].weather[0].description
         weatherObj[j].wind = data.list[i].wind.speed
         weatherObj[j].pressure = data.list[i].main.pressure
         weatherObj[j].humidity = data.list[i].main.humidity
@@ -121,10 +121,15 @@ reverseGeocode({lng: latitude, lat: longitude}, mapBoxToken).then(function(resul
 
 $(".btn").click(function(event){
     event.preventDefault()
+    $(".hiddenForm").hide()
     let inputAddress=$("#inputAddress").val();
     geocode(inputAddress, mapBoxToken).then(function(result) {
         let latitude = result[0]
         let longitude = result[1]
+        reverseGeocode({lng: latitude, lat: longitude}, mapBoxToken).then(function(results) {
+
+            $("#city").html("Current Location: "+ results)
+        });
         $.get("http://api.openweathermap.org/data/2.5/forecast", {
             APPID: openWeatherToken,
             lat: longitude,
@@ -158,10 +163,74 @@ $(".btn").click(function(event){
         });
         map.setCenter(result)
        marker.setLngLat(result)
+
+    })
+
+})
+$(".btn2").click(function(event){
+    event.preventDefault()
+    $("#inputAddress").val($("#suggestedAddress").val())
+    $(".hiddenForm").hide()
+    let inputAddress=$("#inputAddress").val();
+    geocode(inputAddress, mapBoxToken).then(function(result) {
+        let latitude = result[0]
+        let longitude = result[1]
         reverseGeocode({lng: latitude, lat: longitude}, mapBoxToken).then(function(results) {
 
             $("#city").html("Current Location: "+ results)
-        });    })
+        });
+
+        $.get("http://api.openweathermap.org/data/2.5/forecast", {
+            APPID: openWeatherToken,
+            lat: longitude,
+            lon: latitude,
+            units: "imperial"
+        }).done(function (data) {
+            var weatherObj = {}
+            for (var i = 0, j = 0; i < 40; i = i + 8, j++) {
+                weatherObj[j] = {}
+                weatherObj[j].tempMin = data.list[i].main.temp_min
+                weatherObj[j].tempMax = data.list[i].main.temp_max
+                weatherObj[j].description = data.list[i].weather[0].description
+                weatherObj[j].wind = data.list[i].wind.speed
+                weatherObj[j].pressure = data.list[i].main.pressure
+                weatherObj[j].humidity = data.list[i].main.humidity
+                weatherObj[j].date = data.list[i].dt_txt
+                weatherObj[j].icon = data.list[i].weather[0].icon
+            }
+            var cards = $(".card-deck").children()
+            for (var i = 0; i < cards.length; i++) {
+                let card = cards[i];
+                card.innerHTML = '<div class="card-header">' + weatherObj[i].date.split(" ")[0] + '</div>' +
+                    "<ul class=\"list-group list-group-flush\">\n" +
+                    "            <li class=\"list-group-item\">" + weatherObj[i].tempMin + "°F / " + weatherObj[i].tempMax + "°F" + "<br>" +
+                    "<img src='http://openweathermap.org/img/wn/" + weatherObj[i].icon + "@2x.png' width='50px' height='50px'>" + "</li>" +
+                    "            <li class=\"list-group-item\"> Description: " + weatherObj[i].description + "<br><br>Humdity: " + weatherObj[i].humidity + "</li>\n" +
+                    "            <li class=\"list-group-item\">Wind: " + weatherObj[i].wind + "</li>\n" +
+                    "            <li class=\"list-group-item\">Pressure: " + weatherObj[i].pressure + "</li>\n" +
+                    "        </ul>"
+            }
+        });
+        map.setCenter(result)
+        marker.setLngLat(result)
+
+    })
+})
+
+$("#inputAddress").keypress(function(event){
+    let address=$("#inputAddress").val();
+    if (address.length>4) {
+        geocode(address, mapBoxToken).then(function (result) {
+            var longitude = result[0];
+            var latitude = result[1]
+            reverseGeocode({lng: longitude, lat: latitude}, mapBoxToken).then(function (results) {
+                // logs the address for The Alamo
+                console.log(results);
+                $("#suggestedAddress").val(results)
+                $(".hiddenForm").show()
+            });
+        })
+    }
 
 })
 

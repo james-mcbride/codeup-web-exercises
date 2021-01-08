@@ -28,7 +28,7 @@ h3{
         width: 400px;
     }
 
-    #inputAddress {
+    #inputAddress, #suggestedAddress {
         width: 100%
     }
     body, html{
@@ -67,3 +67,6 @@ h3{
     }
 
 }
+
+
+
