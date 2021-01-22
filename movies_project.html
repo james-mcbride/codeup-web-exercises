@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/keys.js"></script>
+<script>
+
+function getMovieInfo(movie) {
+    fetch(`http://www.omdbapi.com/?s=${movie}&apikey=${OMDB_TOKEN}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            console.log(data.Search[0].Poster)
+            return data.Search[0].imdbID
+        })
+        .then(
+            movieID=>fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${TMDB_TOKEN}&language=en-US`)
+            .then(response=>response.json())
+                 .then(image => {
+                     console.log(image)
+                     image.poster_path
+                 })
+                .then(imageLink=>console.log(`https://image.tmdb.org/t/p/w500/${imageLink}`))
+
+            .catch(error => console.log(error))
+        )
+        /* review was created successfully */
+        .catch(error => console.error(error)); /* handle errors */
+}
+
+const getOptions = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    // body: JSON.stringify(reviewObj),
+};
+fetch("https://apple-veil-game.glitch.me/movies", getOptions)
+    .then( response => response.json() )
+    .then(data => console.log(data))
+    /* review was created successfully */
+    .catch( error => console.error(error) ); /* handle errors */
+
+let reviewObj = {
+    "title": "The Return of the King",
+    "rating": "10",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZmI1ZGRhNDYtOGVjZC00MmUyLThlNTktMTQyZGE3MzE1ZTdlXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+    "year": "2002",
+    "genre": "Action",
+    "director": "Don't Remember",
+    "plot": "Final movie of the Lord of the Rings trilogy, straight fire.",
+    "actors": "Don't remember",
+    "id": 5
+}
+
+
+const postOptions = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+     body: JSON.stringify(reviewObj),
+};
+// fetch("https://apple-veil-game.glitch.me/movies", postOptions)
+//     .then( response => response.json() )
+//     .then(data => console.log(data))
+//     /* review was created successfully */
+//     .catch( error => console.error(error) ); /* handle errors */
+
+
+// fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${TMDB_TOKEN}&language=en-US`)
+// .then(response => response.json())
+// .then (data => console.log(data))
+// .catch(error=> console.log(error))
+
+getMovieInfo("Inception")
+
+</script>
+</body>
+</html>
